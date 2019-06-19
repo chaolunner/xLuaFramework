@@ -7,6 +7,8 @@ Requirements
 
 - [xLua](https://github.com/Tencent/xLua)
 
+- [UnityFramework](https://github.com/chaolunner/UnityFramework)
+
 How to Start
 ---
 
