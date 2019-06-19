@@ -1,5 +1,4 @@
 # LuaFramework
----
 
 Created by chaolun
 
@@ -53,9 +52,13 @@ How to Start
 
 - Install Lua plugin (choose one)
 
-  - Install [EmmyLua](https://github.com/EmmyLua/IntelliJ-EmmyLua) (free)
+  - Install [EmmyLua](https://github.com/EmmyLua/IntelliJ-EmmyLua) (free)。
+
+    ![](https://github.com/chaolunner/LuaFramework/blob/master/Documents/emmylua.png)
 
   - Install [luaide](https://github.com/k0204/LuaIde) (vscode extensions - paid, github - free)
+
+    ![](https://github.com/chaolunner/LuaFramework/blob/master/Documents/luaide.png)
 
 Reference
 ---
