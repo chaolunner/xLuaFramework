@@ -1,0 +1,24 @@
+local viewComponents = nil
+
+function initialize()
+    print("initialize")
+    viewComponents = system.Create(self, typeof(CS.UniEasy.ECS.ViewComponent))
+end
+
+function onenable()
+    print("onenable")
+    subscribe(
+        group.OnAdd(viewComponents),
+        function(entity)
+            print(entity)
+        end
+    )
+end
+
+function ondisable()
+    print("ondisbale")
+end
+
+function ondestroy()
+    print("ondestroy")
+end

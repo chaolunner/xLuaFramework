@@ -1,0 +1,7 @@
+-- extension classes
+system = CS.UniEasy.ECS.ISystemExtensions
+group = CS.UniEasy.ECS.IGroupExtensions
+
+-- generic methods
+subscribe_generic = xlua.get_generic_method(CS.UnityLua.ObservableExtensions, 'Subscribe')
+subscribe = subscribe_generic(CS.UniEasy.ECS.IEntity)
