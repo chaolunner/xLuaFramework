@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnityLua
+namespace UniEasy
 {
     public static class IObservableExtensions
     {

@@ -2,28 +2,31 @@
 using UnityEngine;
 using System.IO;
 
-public class AssetBundlesUtility
+namespace UniEasy
 {
-    [MenuItem("Assets/Build AssetBundles")]
-    private static void BuildAssetBundles()
+    public static class AssetBundlesUtility
     {
-        var outputPath = Application.dataPath + "/../AssetBundles";
-        if (!Directory.Exists(outputPath))
+        [MenuItem("Assets/Build AssetBundles")]
+        private static void BuildAssetBundles()
         {
-            Directory.CreateDirectory(outputPath);
+            var outputPath = Application.dataPath + "/../AssetBundles";
+            if (!Directory.Exists(outputPath))
+            {
+                Directory.CreateDirectory(outputPath);
+            }
+            BuildAssetBundles(outputPath, BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows64);
         }
-        BuildAssetBundles(outputPath, BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows64);
-    }
 
-    private static void BuildAssetBundles(string outputPath, BuildAssetBundleOptions assetBundleOptions, BuildTarget targetPlatform, AssetBundleBuild[] builds = null)
-    {
-        if (builds != null && builds.Length > 0)
+        private static void BuildAssetBundles(string outputPath, BuildAssetBundleOptions assetBundleOptions, BuildTarget targetPlatform, AssetBundleBuild[] builds = null)
         {
-            BuildPipeline.BuildAssetBundles(outputPath, builds, assetBundleOptions, targetPlatform);
-        }
-        else
-        {
-            BuildPipeline.BuildAssetBundles(outputPath, assetBundleOptions, targetPlatform);
+            if (builds != null && builds.Length > 0)
+            {
+                BuildPipeline.BuildAssetBundles(outputPath, builds, assetBundleOptions, targetPlatform);
+            }
+            else
+            {
+                BuildPipeline.BuildAssetBundles(outputPath, assetBundleOptions, targetPlatform);
+            }
         }
     }
 }

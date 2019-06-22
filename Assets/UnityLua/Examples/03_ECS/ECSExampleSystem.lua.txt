@@ -2,7 +2,7 @@ local viewComponents = nil
 
 function initialize()
     print("initialize")
-    viewComponents = system.Create(self, typeof(CS.UniEasy.ECS.ViewComponent))
+    viewComponents = system.Create(self, CS.UniEasy.ECS.ViewComponent)
 end
 
 function onenable()
@@ -10,7 +10,8 @@ function onenable()
     subscribe(
         group.OnAdd(viewComponents),
         function(entity)
-            print(entity)
+            local viewComponent = get_component(entity, CS.UniEasy.ECS.ViewComponent)
+            print(viewComponent.Transforms[0].name)
         end
     )
 end

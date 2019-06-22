@@ -1,9 +1,8 @@
-﻿using UniEasy.ECS;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using XLua;
 
-namespace UnityLua
+namespace UniEasy.ECS
 {
     public class LuaSystem : SystemBehaviour
     {
@@ -81,6 +80,7 @@ namespace UnityLua
             base.OnDestroy();
 
             luaOnDestroy?.Invoke();
+            systemEnv.Dispose();
         }
     }
 }

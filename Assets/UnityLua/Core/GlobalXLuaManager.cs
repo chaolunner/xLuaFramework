@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UnityLua
+namespace UniEasy
 {
     public class GlobalXLuaManager : MonoBehaviour
     {

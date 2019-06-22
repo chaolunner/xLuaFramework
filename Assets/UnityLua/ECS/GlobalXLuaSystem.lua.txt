@@ -3,5 +3,9 @@ system = CS.UniEasy.ECS.ISystemExtensions
 group = CS.UniEasy.ECS.IGroupExtensions
 
 -- generic methods
-subscribe_generic = xlua.get_generic_method(CS.UnityLua.ObservableExtensions, 'Subscribe')
+subscribe_generic = xlua.get_generic_method(typeof(CS.UniEasy.IObservableExtensions), "Subscribe")
 subscribe = subscribe_generic(CS.UniEasy.ECS.IEntity)
+get_component_generic = xlua.get_generic_method(CS.UniEasy.ECS.IEntity, "GetComponent")
+get_component = function(entity, type)
+    return get_component_generic(type)(entity)
+end

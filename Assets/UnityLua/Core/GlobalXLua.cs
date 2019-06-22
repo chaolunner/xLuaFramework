@@ -1,6 +1,6 @@
 ﻿using XLua;
 
-namespace UnityLua
+namespace UniEasy
 {
     public static class GlobalXLua
     {

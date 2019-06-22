@@ -67,6 +67,8 @@ Reference
 
 - [Unity Development with VS Code](https://code.visualstudio.com/docs/other/unity)
 
+  VS Code documents about Unity.
+
 - [LuaFramework/wiki](https://github.com/chaolunner/LuaFramework/wiki)
 
   LuaFramework documents.
