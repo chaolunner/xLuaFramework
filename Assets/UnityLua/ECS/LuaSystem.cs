@@ -15,12 +15,7 @@ namespace UniEasy.ECS
         private Action luaOnDisable;
         private Action luaOnDestroy;
 
-        private static string __IndexStr = "__index";
-        private static string SelfStr = "self";
-        private static string InitializeStr = "initialize";
-        private static string OnEnableStr = "onenable";
-        private static string OnDisableStr = "ondisable";
-        private static string OnDestroyStr = "ondestroy";
+        public static LuaTable GlobalEnv = GlobalXLua.NewLuaEnv();
 
         public override void Initialize(IEventSystem eventSystem, IPoolManager poolManager, GroupFactory groupFactory, PrefabFactory prefabFactory)
         {
@@ -32,33 +27,18 @@ namespace UniEasy.ECS
 
         private void InitializeLuaSystem()
         {
-            if (IsGlobal)
-            {
-                systemEnv = GlobalXLua.LuaEnv.Global;
-            }
-            else
-            {
-                systemEnv = GlobalXLua.LuaEnv.NewTable();
-
-                // setting up an independent environment for each systems, 
-                // can prevent global variables and function conflicts among systems to some extent.
-                var meta = GlobalXLua.LuaEnv.NewTable();
-                meta.Set(__IndexStr, GlobalXLua.LuaEnv.Global);
-                systemEnv.SetMetaTable(meta);
-                meta.Dispose();
-            }
-
-            systemEnv.Set(SelfStr, this);
+            systemEnv = IsGlobal ? GlobalEnv : GlobalXLua.NewLuaEnv(GlobalEnv);
+            systemEnv.Set(GlobalXLua.SelfStr, this);
 
             if (LuaAsset)
             {
                 GlobalXLua.LuaEnv.DoString(LuaAsset.text, LuaAsset.name, systemEnv);
             }
 
-            systemEnv.Get(InitializeStr, out luaInitialize);
-            systemEnv.Get(OnEnableStr, out luaOnEnable);
-            systemEnv.Get(OnDisableStr, out luaOnDisable);
-            systemEnv.Get(OnDestroyStr, out luaOnDestroy);
+            systemEnv.Get(GlobalXLua.InitializeStr, out luaInitialize);
+            systemEnv.Get(GlobalXLua.OnEnableStr, out luaOnEnable);
+            systemEnv.Get(GlobalXLua.OnDisableStr, out luaOnDisable);
+            systemEnv.Get(GlobalXLua.OnDestroyStr, out luaOnDestroy);
         }
 
         public override void OnEnable()

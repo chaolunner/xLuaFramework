@@ -2,7 +2,7 @@
 
 namespace UniEasy
 {
-    public static class IObservableExtensions
+    public static partial class IObservableExtensions
     {
         public static IDisposable Subscribe<T>(this IObservable<T> source, Action<T> onNext)
         {

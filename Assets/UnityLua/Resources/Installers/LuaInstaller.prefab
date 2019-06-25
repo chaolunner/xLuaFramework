@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7741313901787111037
+--- !u!1 &5362834858878783272
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1412674274001138967}
-  - component: {fileID: 3922382881449959610}
-  - component: {fileID: 8547072332299451972}
+  - component: {fileID: 94633696158454961}
+  - component: {fileID: 5576483839414191114}
   m_Layer: 0
-  m_Name: LuaManager
+  m_Name: LuaInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1412674274001138967
+--- !u!4 &94633696158454961
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7741313901787111037}
+  m_GameObject: {fileID: 5362834858878783272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,30 +31,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3922382881449959610
+--- !u!114 &5576483839414191114
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7741313901787111037}
+  m_GameObject: {fileID: 5362834858878783272}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517fa84622f5b7541b95d860946469f0, type: 3}
+  m_Script: {fileID: 11500000, guid: e0543787627f94042ba03a98c75ec9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GCInterval: 1
---- !u!114 &8547072332299451972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7741313901787111037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75cab7f1928691e449bcfeecbf2b4776, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsGlobal: 1
-  LuaAsset: {fileID: 4900000, guid: 8c68c37a8d499d64ca3ced66267bdeae, type: 3}
