@@ -1,0 +1,26 @@
+LuaSystems = new_env()
+
+-- c# extension classes
+system = CS.UniEasy.ECS.ISystemExtensions
+group = CS.UniEasy.ECS.IGroupExtensions
+
+-- c# generic methods
+get_component_generic = xlua.get_generic_method(CS.UniEasy.ECS.IEntity, "GetComponent")
+get_component = function(entity, type)
+    return get_component_generic(type)(entity)
+end
+
+-- lua methods
+function create_system(path, container)
+    local name = string.match(path, ".+/(.+)")
+    if LuaSystems[name] == nil then
+        LuaSystems[name] = new_env(LuaSystems)
+        require(path)
+    end
+    local go = CS.UnityEngine.GameObject(name)
+    go:SetActive(false)
+    local system = go:AddComponent(typeof(CS.UniEasy.ECS.LuaSystem))
+    system.systemEnv = new_env(LuaSystems[name])
+    container:Inject(system)
+    go:SetActive(true)
+end

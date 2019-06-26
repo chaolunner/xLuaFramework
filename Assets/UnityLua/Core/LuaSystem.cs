@@ -6,39 +6,24 @@ namespace UniEasy.ECS
 {
     public class LuaSystem : SystemBehaviour
     {
-        public bool IsGlobal;
-        public TextAsset LuaAsset;
-
-        private LuaTable systemEnv;
-        private Action luaInitialize;
+        public LuaTable systemEnv;
+        private GlobalXLua.Initialize luaInitialize;
         private Action luaOnEnable;
         private Action luaOnDisable;
         private Action luaOnDestroy;
-
-        public static LuaTable GlobalEnv = GlobalXLua.NewLuaEnv();
 
         public override void Initialize(IEventSystem eventSystem, IPoolManager poolManager, GroupFactory groupFactory, PrefabFactory prefabFactory)
         {
             base.Initialize(eventSystem, poolManager, groupFactory, prefabFactory);
 
-            InitializeLuaSystem();
-            luaInitialize?.Invoke();
-        }
+            systemEnv.Set("self", this);
 
-        private void InitializeLuaSystem()
-        {
-            systemEnv = IsGlobal ? GlobalEnv : GlobalXLua.NewLuaEnv(GlobalEnv);
-            systemEnv.Set(GlobalXLua.SelfStr, this);
+            systemEnv.Get("Initialize", out luaInitialize);
+            systemEnv.Get("OnEnable", out luaOnEnable);
+            systemEnv.Get("OnDisable", out luaOnDisable);
+            systemEnv.Get("OnDestroy", out luaOnDestroy);
 
-            if (LuaAsset)
-            {
-                GlobalXLua.LuaEnv.DoString(LuaAsset.text, LuaAsset.name, systemEnv);
-            }
-
-            systemEnv.Get(GlobalXLua.InitializeStr, out luaInitialize);
-            systemEnv.Get(GlobalXLua.OnEnableStr, out luaOnEnable);
-            systemEnv.Get(GlobalXLua.OnDisableStr, out luaOnDisable);
-            systemEnv.Get(GlobalXLua.OnDestroyStr, out luaOnDestroy);
+            luaInitialize?.Invoke(this, eventSystem, poolManager, groupFactory, prefabFactory);
         }
 
         public override void OnEnable()

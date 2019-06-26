@@ -1,0 +1,47 @@
+require "Lua/Scripts/StringExtensions"
+require "Lua/Scripts/Global"
+
+LuaInstaller = new_env()
+
+local function InstallBindings(container)
+    LuaInstaller.Container = container
+    local global = CS.UnityEngine.Resources.Load("Lua/Preferences/Global")
+    local paths = string.split(global.text, "\r\n", 1, true)
+    LuaInstaller.Require(paths)
+end
+
+local function OnSceneLoaded(scene, mode)
+    local list = CS.UnityEngine.Resources.LoadAll("Lua/Preferences")
+    for i = 0, list.Length - 1 do
+        if string.contains(string.lower(list[i].name), string.lower(scene.name)) then
+            local paths = string.split(list[i].text, "\r\n", 1, true)
+            LuaInstaller.Require(paths)
+        end
+    end
+end
+
+local function OnEnable()
+end
+
+local function Update()
+end
+
+local function OnDisbale()
+end
+
+local function Require(paths)
+    for i, path in pairs(paths) do
+        if string.endswith(path, "System") then
+            create_system(path, LuaInstaller.Container)
+        else
+            require(path)
+        end
+    end
+end
+
+LuaInstaller.InstallBindings = InstallBindings
+LuaInstaller.OnSceneLoaded = OnSceneLoaded
+LuaInstaller.OnEnable = OnEnable
+LuaInstaller.Update = Update
+LuaInstaller.OnDisbale = OnDisbale
+LuaInstaller.Require = Require

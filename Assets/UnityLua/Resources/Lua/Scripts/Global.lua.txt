@@ -1,0 +1,22 @@
+-- c# extension classes
+trigger = CS.UniRx.Triggers.ObservableTriggerExtensions
+
+-- c# generic methods
+subscribe_generic = xlua.get_generic_method(typeof(CS.UniEasy.IObservableExtensions), "Subscribe")
+subscribe = function(type, source, on_next)
+    return subscribe_generic(type)(source, on_next)
+end
+
+-- lua methods
+function new_env(metatable)
+    local luaenv = {}
+    local meta = {}
+    if metatable == nil then
+        meta.__index = CS.UniEasy.GlobalXLua.LuaEnv.Global
+    else
+        meta.__index = metatable
+    end
+    setmetatable(luaenv, meta)
+    meta = nil
+    return luaenv
+end

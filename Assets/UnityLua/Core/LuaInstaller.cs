@@ -1,4 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 using System;
 using XLua;
 
@@ -6,29 +7,27 @@ namespace UniEasy.DI
 {
     public class LuaInstaller : MonoInstaller
     {
-        public LuaTable LuaEnv
-        {
-            get
-            {
-                return GlobalXLua.LuaEnv.Global;
-            }
-        }
-
-        private Action luaInstallBindings;
-        private Action luaOnEnable;
-        private Action luaOnDisable;
+        public float GCInterval = 1;
+        private float lastGCTime;
+        private LuaTable luaenv;
+        private GlobalXLua.InstallBindings luaInstallBindings;
         private GlobalXLua.OnSceneLoaded luaOnSceneLoaded;
+        private Action luaOnEnable;
+        private Action luaUpdate;
+        private Action luaOnDisable;
 
         public override void InstallBindings()
         {
-            GlobalXLua.LuaEnv.DoString("require 'Lua/LuaInstaller'");
+            GlobalXLua.LuaEnv.DoString("require 'Lua/Scripts/LuaInstaller'");
 
-            LuaEnv.Get(GlobalXLua.InstallBindingsStr, out luaInstallBindings);
-            LuaEnv.Get(GlobalXLua.OnEnableStr, out luaOnEnable);
-            LuaEnv.Get(GlobalXLua.OnDisableStr, out luaOnDisable);
-            LuaEnv.Get(GlobalXLua.OnSceneLoadedStr, out luaOnSceneLoaded);
+            luaenv = GlobalXLua.LuaEnv.Global.Get<LuaTable>("LuaInstaller");
+            luaenv.Get("InstallBindings", out luaInstallBindings);
+            luaenv.Get("OnSceneLoaded", out luaOnSceneLoaded);
+            luaenv.Get("OnEnable", out luaOnEnable);
+            luaenv.Get("Update", out luaUpdate);
+            luaenv.Get("OnDisbale", out luaOnDisable);
 
-            luaInstallBindings?.Invoke();
+            luaInstallBindings?.Invoke(Container);
         }
 
         private void OnEnable()
@@ -37,10 +36,20 @@ namespace UniEasy.DI
             luaOnEnable?.Invoke();
         }
 
+        private void Update()
+        {
+            luaUpdate?.Invoke();
+            if (Time.time - lastGCTime > GCInterval)
+            {
+                GlobalXLua.LuaEnv.Tick();
+                lastGCTime = Time.time;
+            }
+        }
+
         private void OnDisable()
         {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
             luaOnDisable?.Invoke();
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

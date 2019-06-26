@@ -1,0 +1,67 @@
+﻿local unpack = unpack or table.unpack
+
+local function split(split_string, pattern, search_pos_begin, plain)
+    assert(type(split_string) == "string")
+    assert(type(pattern) == "string" and #pattern > 0)
+    search_pos_begin = search_pos_begin or 1
+    plain = plain or true
+    local split_result = {}
+
+    while true do
+        local find_pos_begin, find_pos_end = string.find(split_string, pattern, search_pos_begin, plain)
+        if not find_pos_begin then
+            break
+        end
+        local cur_str = ""
+        if find_pos_begin > search_pos_begin then
+            cur_str = string.sub(split_string, search_pos_begin, find_pos_begin - 1)
+        end
+        split_result[#split_result + 1] = cur_str
+        search_pos_begin = find_pos_end + 1
+    end
+
+    if search_pos_begin < string.len(split_string) then
+        split_result[#split_result + 1] = string.sub(split_string, search_pos_begin)
+    else
+        split_result[#split_result + 1] = ""
+    end
+
+    return split_result
+end
+
+function join(join_table, joiner)
+    if #join_table == 0 then
+        return ""
+    end
+
+    local fmt = "%s"
+    for i = 2, #join_table do
+        fmt = fmt .. joiner .. "%s"
+    end
+
+    return string.format(fmt, unpack(join_table))
+end
+
+function contains(target_string, pattern, plain)
+    plain = plain or true
+    local find_pos_begin, find_pos_end = string.find(target_string, pattern, 1, plain)
+    return find_pos_begin ~= nil
+end
+
+function startswith(target_string, start_pattern, plain)
+    plain = plain or true
+    local find_pos_begin, find_pos_end = string.find(target_string, start_pattern, 1, plain)
+    return find_pos_begin == 1
+end
+
+function endswith(target_string, start_pattern, plain)
+    plain = plain or true
+    local find_pos_begin, find_pos_end = string.find(target_string, start_pattern, -(#start_pattern), plain)
+    return find_pos_end == #target_string
+end
+
+string.split = split
+string.join = join
+string.contains = contains
+string.startswith = startswith
+string.endswith = endswith
