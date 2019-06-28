@@ -1,5 +1,3 @@
-LuaSystems = new_env()
-
 -- c# extension classes
 system = CS.UniEasy.ECS.ISystemExtensions
 group = CS.UniEasy.ECS.IGroupExtensions
@@ -13,14 +11,13 @@ end
 -- lua methods
 function create_system(path, container)
     local name = string.match(path, ".+/(.+)")
-    if LuaSystems[name] == nil then
-        LuaSystems[name] = new_env(LuaSystems)
-        require(path)
-    end
     local go = CS.UnityEngine.GameObject(name)
     go:SetActive(false)
     local system = go:AddComponent(typeof(CS.UniEasy.ECS.LuaSystem))
-    system.systemEnv = new_env(LuaSystems[name])
+    system.SystemEnv = new_env()
+    system.SystemEnv.self = system
+    require(path)(system.SystemEnv)
     container:Inject(system)
     go:SetActive(true)
+    return go
 end

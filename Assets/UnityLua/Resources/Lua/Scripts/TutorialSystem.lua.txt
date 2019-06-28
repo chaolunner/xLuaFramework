@@ -1,34 +1,41 @@
-local buttonComponents = nil
+local function TutorialSystem(systemEnv)
+    local self = systemEnv.self
+    local buttonComponents = nil
 
-local function Initialize(self, eventSystem, poolManager, groupFactory, prefabFactory)
-    buttonComponents = system.Create(self, typeof(CS.UniEasy.ECS.ViewComponent), typeof(CS.UnityEngine.UI.Button))
+    local function Initialize(eventSystem, poolManager, groupFactory, prefabFactory)
+        buttonComponents = system.Create(self, typeof(CS.UniEasy.ECS.ViewComponent), typeof(CS.UnityEngine.UI.Button))
+    end
+
+    local function OnEnable()
+        subscribe(
+            CS.UniEasy.ECS.IEntity,
+            group.OnAdd(buttonComponents),
+            function(entity)
+                local viewComponent = get_component(entity, CS.UniEasy.ECS.ViewComponent)
+                local button = get_component(entity, CS.UnityEngine.UI.Button)
+                subscribe(
+                    CS.UnityEngine.EventSystems.PointerEventData,
+                    trigger.OnPointerClickAsObservable(button),
+                    function(_)
+                        if string.contains(button.name, "ReloadButton") then
+                            CS.UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial")
+                        end
+                    end
+                )
+            end
+        )
+    end
+
+    local function OnDisable()
+    end
+
+    local function OnDestroy()
+    end
+
+    systemEnv.Initialize = Initialize
+    systemEnv.OnEnable = OnEnable
+    systemEnv.OnDisable = OnDisable
+    systemEnv.OnDestroy = OnDestroy
 end
 
-local function OnEnable()
-    subscribe(
-        CS.UniEasy.ECS.IEntity,
-        group.OnAdd(buttonComponents),
-        function(entity)
-            local viewComponent = get_component(entity, CS.UniEasy.ECS.ViewComponent)
-            local button = get_component(entity, CS.UnityEngine.UI.Button)
-            subscribe(
-                CS.UnityEngine.EventSystems.PointerEventData,
-                trigger.OnPointerClickAsObservable(button),
-                function(_)
-                    CS.UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial")
-                end
-            )
-        end
-    )
-end
-
-local function OnDisable()
-end
-
-local function OnDestroy()
-end
-
-LuaSystems.TutorialSystem.Initialize = Initialize
-LuaSystems.TutorialSystem.OnEnable = OnEnable
-LuaSystems.TutorialSystem.OnDisable = OnDisable
-LuaSystems.TutorialSystem.OnDestroy = OnDestroy
+return TutorialSystem

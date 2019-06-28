@@ -9,8 +9,8 @@ namespace UniEasy.DI
     {
         public float GCInterval = 1;
         private float lastGCTime;
-        private LuaTable luaenv;
-        private GlobalXLua.InstallBindings luaInstallBindings;
+        private LuaTable InstallerEnv;
+        private Action luaInstallBindings;
         private GlobalXLua.OnSceneLoaded luaOnSceneLoaded;
         private Action luaOnEnable;
         private Action luaUpdate;
@@ -19,15 +19,16 @@ namespace UniEasy.DI
         public override void InstallBindings()
         {
             GlobalXLua.LuaEnv.DoString("require 'Lua/Scripts/LuaInstaller'");
+            GlobalXLua.LuaEnv.Global.Get("InstallerEnv", out InstallerEnv);
+            InstallerEnv.Set("self", this);
+            InstallerEnv.Set("Container", Container);
+            InstallerEnv.Get("InstallBindings", out luaInstallBindings);
+            InstallerEnv.Get("OnSceneLoaded", out luaOnSceneLoaded);
+            InstallerEnv.Get("OnEnable", out luaOnEnable);
+            InstallerEnv.Get("Update", out luaUpdate);
+            InstallerEnv.Get("OnDisbale", out luaOnDisable);
 
-            luaenv = GlobalXLua.LuaEnv.Global.Get<LuaTable>("LuaInstaller");
-            luaenv.Get("InstallBindings", out luaInstallBindings);
-            luaenv.Get("OnSceneLoaded", out luaOnSceneLoaded);
-            luaenv.Get("OnEnable", out luaOnEnable);
-            luaenv.Get("Update", out luaUpdate);
-            luaenv.Get("OnDisbale", out luaOnDisable);
-
-            luaInstallBindings?.Invoke(Container);
+            luaInstallBindings?.Invoke();
         }
 
         private void OnEnable()

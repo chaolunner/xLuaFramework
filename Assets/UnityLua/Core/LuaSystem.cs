@@ -6,7 +6,7 @@ namespace UniEasy.ECS
 {
     public class LuaSystem : SystemBehaviour
     {
-        public LuaTable systemEnv;
+        public LuaTable SystemEnv;
         private GlobalXLua.Initialize luaInitialize;
         private Action luaOnEnable;
         private Action luaOnDisable;
@@ -16,14 +16,12 @@ namespace UniEasy.ECS
         {
             base.Initialize(eventSystem, poolManager, groupFactory, prefabFactory);
 
-            systemEnv.Set("self", this);
+            SystemEnv.Get("Initialize", out luaInitialize);
+            SystemEnv.Get("OnEnable", out luaOnEnable);
+            SystemEnv.Get("OnDisable", out luaOnDisable);
+            SystemEnv.Get("OnDestroy", out luaOnDestroy);
 
-            systemEnv.Get("Initialize", out luaInitialize);
-            systemEnv.Get("OnEnable", out luaOnEnable);
-            systemEnv.Get("OnDisable", out luaOnDisable);
-            systemEnv.Get("OnDestroy", out luaOnDestroy);
-
-            luaInitialize?.Invoke(this, eventSystem, poolManager, groupFactory, prefabFactory);
+            luaInitialize?.Invoke(eventSystem, poolManager, groupFactory, prefabFactory);
         }
 
         public override void OnEnable()
@@ -45,7 +43,6 @@ namespace UniEasy.ECS
             base.OnDestroy();
 
             luaOnDestroy?.Invoke();
-            systemEnv.Dispose();
         }
     }
 }
