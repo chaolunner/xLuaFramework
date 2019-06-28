@@ -17,8 +17,10 @@ local function TutorialSystem(systemEnv)
                     CS.UnityEngine.EventSystems.PointerEventData,
                     trigger.OnPointerClickAsObservable(button),
                     function(_)
-                        if string.contains(button.name, "ReloadButton") then
+                        if string.contains(button.name, "ReloadSceneButton") then
                             CS.UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial")
+                        elseif string.contains(button.name, "CreatePrimitiveButton") then
+                            CS.UnityEngine.GameObject.CreatePrimitive(CS.UnityEngine.PrimitiveType.Cube)
                         end
                     end
                 )

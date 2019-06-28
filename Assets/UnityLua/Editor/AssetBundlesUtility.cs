@@ -14,6 +14,8 @@ namespace UniEasy
             {
                 Directory.CreateDirectory(outputPath);
             }
+            SetAssetBundlesNameAndVariant("Lua/Preferences");
+            SetAssetBundlesNameAndVariant("Lua/Scripts");
             BuildAssetBundles(outputPath, BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows64);
         }
 
@@ -26,6 +28,15 @@ namespace UniEasy
             else
             {
                 BuildPipeline.BuildAssetBundles(outputPath, assetBundleOptions, targetPlatform);
+            }
+        }
+
+        private static void SetAssetBundlesNameAndVariant(string path)
+        {
+            var list = Resources.LoadAll(path);
+            foreach (var item in list)
+            {
+                AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(item)).SetAssetBundleNameAndVariant(path, "");
             }
         }
     }
