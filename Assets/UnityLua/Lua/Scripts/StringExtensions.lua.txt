@@ -1,4 +1,4 @@
-﻿local unpack = unpack or table.unpack
+local unpack = unpack or table.unpack
 
 local function split(split_string, pattern, search_pos_begin, plain)
     assert(type(split_string) == "string")

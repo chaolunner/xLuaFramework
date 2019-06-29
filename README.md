@@ -9,6 +9,8 @@ Requirements
 
 - [UnityFramework](https://github.com/chaolunner/UnityFramework)
 
+- Addressable `"com.unity.addressables": "1.1.4-preview"`
+
 How to Start
 ---
 
@@ -72,3 +74,11 @@ Reference
 - [LuaFramework/wiki](https://github.com/chaolunner/LuaFramework/wiki)
 
   LuaFramework documents.
+
+- [Unity Asset Bundle Browser tool](https://docs.unity3d.com/Manual/AssetBundles-Browser.html)(Deprecated can be replaced by Addressable Asset System after Unity2018.2+)
+
+  Editor tool for viewing and debugging asset bundle contents before and after builds.
+
+- [Addressable Asset System](https://docs.unity3d.com/Packages/com.unity.addressables@1.1/manual/index.html)
+
+  The Addressable Asset System provides an easy way to load assets by “address”. It handles asset management overhead by simplifying content pack creation and deployment.

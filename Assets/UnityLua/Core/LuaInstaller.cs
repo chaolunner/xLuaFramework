@@ -1,5 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.IO;
 using System;
 using XLua;
 
@@ -18,6 +19,9 @@ namespace UniEasy.DI
 
         public override void InstallBindings()
         {
+            AssetsManager.Update("lua");
+
+            GlobalXLua.LuaEnv.AddLoader(CustomizeLoader);
             GlobalXLua.LuaEnv.DoString("require 'Lua/Scripts/LuaInstaller'");
             GlobalXLua.LuaEnv.Global.Get("InstallerEnv", out InstallerEnv);
             InstallerEnv.Set("self", this);
@@ -56,6 +60,19 @@ namespace UniEasy.DI
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             luaOnSceneLoaded?.Invoke(scene, mode);
+        }
+
+        private byte[] CustomizeLoader(ref string filepath)
+        {
+            filepath = Application.dataPath + "/UnityLua/" + filepath + ".lua.txt";
+            if (File.Exists(filepath))
+            {
+                return File.ReadAllBytes(filepath);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
