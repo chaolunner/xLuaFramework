@@ -6,6 +6,7 @@ public static class AssetsManager
 {
     public static async void Update(params object[] labels)
     {
+        //CleanCache();
         //foreach (var label in labels)
         //{
         //    var handle = Addressables.GetDownloadSizeAsync(label);
@@ -20,7 +21,7 @@ public static class AssetsManager
 
         Addressables.GetDownloadSizeAsync("default").Completed += op =>
         {
-            Debug.Log(op.Result);
+            Debug.Log("default size: " + op.Result);
         };
 
         Addressables.DownloadDependenciesAsync("default").Completed += op =>
@@ -34,9 +35,20 @@ public static class AssetsManager
             }
         };
 
-        Addressables.LoadAssetAsync<TextAsset>("Overview.lua").Completed += op1 =>
+        Addressables.GetDownloadSizeAsync("lua").Completed += op =>
         {
-            Debug.Log(op1.Result.text);
+            Debug.Log("lua size: " + op.Result);
+        };
+
+        Addressables.DownloadDependenciesAsync("lua").Completed += op =>
+        {
+            if (op.Status == AsyncOperationStatus.Succeeded)
+            {
+                Addressables.LoadAssetAsync<TextAsset>("Preferences/Overview.lua").Completed += op1 =>
+                {
+                    Debug.Log(op1.Result.text);
+                };
+            }
         };
 
         //foreach (var label in labels)
@@ -50,5 +62,21 @@ public static class AssetsManager
         //        Debug.Log(handle.Result);
         //    }
         //}
+    }
+
+    public static bool CleanCache()
+    {
+        var result = Caching.ClearCache();
+#if UNITY_EDITOR
+        if (result)
+        {
+            Debug.Log("Successfully cleaned the cache.");
+        }
+        else
+        {
+            Debug.Log("Cache is being used.");
+        }
+#endif
+        return result;
     }
 }

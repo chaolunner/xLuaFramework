@@ -75,7 +75,7 @@ Reference
 
   LuaFramework documents.
 
-- [Unity Asset Bundle Browser tool](https://docs.unity3d.com/Manual/AssetBundles-Browser.html)(Deprecated can be replaced by Addressable Asset System after Unity2018.2+)
+- [Unity Asset Bundle Browser tool](https://docs.unity3d.com/Manual/AssetBundles-Browser.html) (Deprecated can be replaced by Addressable Asset System after Unity2018.2+)
 
   Editor tool for viewing and debugging asset bundle contents before and after builds.
 
