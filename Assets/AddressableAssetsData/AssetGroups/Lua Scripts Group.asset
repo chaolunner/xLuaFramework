@@ -18,22 +18,22 @@ MonoBehaviour:
   m_GUID: 6cd79bc18ea76bf4d9181b8c5e64b0a7
   m_SerializeEntries:
   - m_GUID: 679ed8409afb1ce42b60ac8593a967c8
-    m_Address: LuaSystems.lua
+    m_Address: Lua/Scripts/LuaSystems.lua
     m_ReadOnly: 0
     m_SerializedLabels:
     - lua
   - m_GUID: a9b85e789c7f4794f983037cdbed0bbd
-    m_Address: LuaInstaller.lua
+    m_Address: Lua/Scripts/LuaInstaller.lua
     m_ReadOnly: 0
     m_SerializedLabels:
     - lua
   - m_GUID: d98139efd54161846b6f3df68d2a2296
-    m_Address: Global.lua
+    m_Address: Lua/Scripts/Global.lua
     m_ReadOnly: 0
     m_SerializedLabels:
     - lua
   - m_GUID: dbc00efca88839d4db306e24e54bb7c9
-    m_Address: TutorialSystem.lua
+    m_Address: Lua/Scripts/TutorialSystem.lua
     m_ReadOnly: 0
     m_SerializedLabels:
     - lua

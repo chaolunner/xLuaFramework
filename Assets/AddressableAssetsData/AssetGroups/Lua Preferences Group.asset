@@ -18,17 +18,17 @@ MonoBehaviour:
   m_GUID: 06279899734d3ee4ea44fcad2c15a778
   m_SerializeEntries:
   - m_GUID: 9b895128f786311429748f317093afe1
-    m_Address: Preferences/Global.lua
+    m_Address: Lua/Preferences/Global.lua
     m_ReadOnly: 0
     m_SerializedLabels:
     - lua
   - m_GUID: adcc3412ace1fbc4c92bc1f501f4606b
-    m_Address: Preferences/Tutorial.lua
+    m_Address: Lua/Preferences/Tutorial.lua
     m_ReadOnly: 0
     m_SerializedLabels:
     - lua
   - m_GUID: d8af466ddf04acb41baf147062ea0b25
-    m_Address: Preferences/Overview.lua
+    m_Address: Lua/Preferences/Overview.lua
     m_ReadOnly: 0
     m_SerializedLabels:
     - lua

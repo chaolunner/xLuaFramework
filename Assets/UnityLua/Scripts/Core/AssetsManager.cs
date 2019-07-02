@@ -19,6 +19,8 @@ public static class AssetsManager
         //    }
         //}
 
+        CleanCache();
+
         Addressables.GetDownloadSizeAsync("default").Completed += op =>
         {
             Debug.Log("default size: " + op.Result);
