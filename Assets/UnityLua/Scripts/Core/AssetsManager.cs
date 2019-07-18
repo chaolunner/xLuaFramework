@@ -19,39 +19,39 @@ public static class AssetsManager
         //    }
         //}
 
-        CleanCache();
+        //CleanCache();
 
-        Addressables.GetDownloadSizeAsync("default").Completed += op =>
-        {
-            Debug.Log("default size: " + op.Result);
-        };
+        //Addressables.GetDownloadSizeAsync("default").Completed += op =>
+        //{
+        //    Debug.Log("default size: " + op.Result);
+        //};
 
-        Addressables.DownloadDependenciesAsync("default").Completed += op =>
-        {
-            if (op.Status == AsyncOperationStatus.Succeeded)
-            {
-                Addressables.LoadAssetAsync<GameObject>("Cube").Completed += op1 =>
-                {
-                    GameObject.Instantiate(op1.Result);
-                };
-            }
-        };
+        //Addressables.DownloadDependenciesAsync("default").Completed += op =>
+        //{
+        //    if (op.Status == AsyncOperationStatus.Succeeded)
+        //    {
+        //        Addressables.LoadAssetAsync<GameObject>("Cube").Completed += op1 =>
+        //        {
+        //            GameObject.Instantiate(op1.Result);
+        //        };
+        //    }
+        //};
 
-        Addressables.GetDownloadSizeAsync("lua").Completed += op =>
-        {
-            Debug.Log("lua size: " + op.Result);
-        };
+        //Addressables.GetDownloadSizeAsync("lua").Completed += op =>
+        //{
+        //    Debug.Log("lua size: " + op.Result);
+        //};
 
-        Addressables.DownloadDependenciesAsync("lua").Completed += op =>
-        {
-            if (op.Status == AsyncOperationStatus.Succeeded)
-            {
-                Addressables.LoadAssetAsync<TextAsset>("Preferences/Overview.lua").Completed += op1 =>
-                {
-                    Debug.Log(op1.Result.text);
-                };
-            }
-        };
+        //Addressables.DownloadDependenciesAsync("lua").Completed += op =>
+        //{
+        //    if (op.Status == AsyncOperationStatus.Succeeded)
+        //    {
+        //        Addressables.LoadAssetAsync<TextAsset>("Preferences/Overview.lua").Completed += op1 =>
+        //        {
+        //            Debug.Log(op1.Result.text);
+        //        };
+        //    }
+        //};
 
         //foreach (var label in labels)
         //{

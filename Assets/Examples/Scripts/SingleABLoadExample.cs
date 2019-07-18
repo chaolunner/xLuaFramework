@@ -12,26 +12,21 @@ public class SingleABLoadExample : MonoBehaviour
     private string abDependPrefabs = "single_ab_load/prefabs.ab";
     private string assetName = "Cube.prefab";
 
-    void Awake()
-    {
-        StartCoroutine(ABManifestLoader.GetInstance().LoadMainifestFile());
-    }
-
     void Start()
     {
-        texturesLoader = new ABLoader(abDependTextures, loadCompleted: OnTexturesLoadCompleted);
+        texturesLoader = new ABLoader(abDependTextures, onLoadCompleted: OnTexturesLoadCompleted);
         StartCoroutine(texturesLoader.LoadAssetBundle());
     }
 
     private void OnTexturesLoadCompleted(string abName)
     {
-        materialsLoader = new ABLoader(abDependMaterials, loadCompleted: OnMaterialsLoadCompleted);
+        materialsLoader = new ABLoader(abDependMaterials, onLoadCompleted: OnMaterialsLoadCompleted);
         StartCoroutine(materialsLoader.LoadAssetBundle());
     }
 
     private void OnMaterialsLoadCompleted(string abName)
     {
-        prefabsLoader = new ABLoader(abDependPrefabs, loadCompleted: OnPrefabsLoadCompleted);
+        prefabsLoader = new ABLoader(abDependPrefabs, onLoadCompleted: OnPrefabsLoadCompleted);
         StartCoroutine(prefabsLoader.LoadAssetBundle());
     }
 
