@@ -3,5 +3,5 @@ guid: 9b895128f786311429748f317093afe1
 TextScriptImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+  assetBundleName: lua/preferences
+  assetBundleVariant: ab
