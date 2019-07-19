@@ -19,7 +19,7 @@ local function LuaInstaller(installerEnv)
         end
     end
 
-    local function InstallBindings()
+    local function Initialize()
         Require(require("Lua/Preferences/Global"), nil)
     end
 
@@ -47,7 +47,7 @@ local function LuaInstaller(installerEnv)
     local function OnDisbale()
     end
 
-    installerEnv.InstallBindings = InstallBindings
+    installerEnv.Initialize = Initialize
     installerEnv.OnSceneLoaded = OnSceneLoaded
     installerEnv.OnEnable = OnEnable
     installerEnv.Update = Update

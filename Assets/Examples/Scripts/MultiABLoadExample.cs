@@ -18,7 +18,7 @@ public class MultiABLoadExample : MonoBehaviour
             yield return null;
         }
         Debug.Log(string.Format("Download Progress {0}%, Downloaded Size {1}KB/{2}KB", AssetBundleManager.GetInstance().GetDownloadProgress(), AssetBundleManager.GetInstance().GetDownloadedSize().ToString("0"), AssetBundleManager.GetInstance().GetContentSize().ToString("0")));
-        StartCoroutine(AssetBundleManager.GetInstance().LoadAssetBundle(sceneName, bundleName, null, OnLoadCompleted));
+        StartCoroutine(AssetBundleManager.GetInstance().LoadAssetBundle(sceneName, bundleName, OnLoadCompleted));
     }
 
     private void OnLoadCompleted(string abName)
