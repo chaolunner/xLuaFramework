@@ -3,6 +3,13 @@ local function TutorialSystem(systemEnv)
     local buttonComponents = nil
 
     local function Initialize(eventSystem, poolManager, groupFactory, prefabFactory)
+        xlua.hotfix(
+            CS.TutorialExample,
+            "HotfixTest",
+            function(self)
+                print("Hotfix Success!")
+            end
+        )
         buttonComponents = system.Create(self, typeof(CS.UniEasy.ECS.ViewComponent), typeof(CS.UnityEngine.UI.Button))
     end
 

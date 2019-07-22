@@ -7,10 +7,10 @@ namespace UniEasy.ECS
     public class LuaSystem : SystemBehaviour
     {
         public LuaTable SystemEnv;
-        private GlobalXLua.Initialize luaInitialize;
-        private Action luaOnEnable;
-        private Action luaOnDisable;
-        private Action luaOnDestroy;
+        public LuaDefine.Initialize luaInitialize;
+        public Action luaOnEnable;
+        public Action luaOnDisable;
+        public Action luaOnDestroy;
 
         public override void Initialize(IEventSystem eventSystem, IPoolManager poolManager, GroupFactory groupFactory, PrefabFactory prefabFactory)
         {

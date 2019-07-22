@@ -12,11 +12,11 @@ namespace UniEasy.DI
         public float GCInterval = 1;
         private float lastGCTime;
         private LuaTable InstallerEnv;
-        private Action luaInitialize;
-        private GlobalXLua.OnSceneLoaded luaOnSceneLoaded;
-        private Action luaOnEnable;
-        private Action luaUpdate;
-        private Action luaOnDisable;
+        public Action luaInitialize;
+        public LuaDefine.OnSceneLoaded luaOnSceneLoaded;
+        public Action luaOnEnable;
+        public Action luaUpdate;
+        public Action luaOnDisable;
 
         public override void InstallBindings() { }
 
@@ -27,7 +27,7 @@ namespace UniEasy.DI
 
         private IEnumerator Initialize()
         {
-            yield return StartCoroutine(AssetBundleManager.GetInstance().DownloadAssetBundle());
+            while (AssetBundleManager.GetInstance().GetDownloadProgress() < 100) { yield return null; }
 
             var manifest = ABManifestLoader.GetInstance().GetABManifest();
             var luaPackCount = 0;
@@ -47,9 +47,9 @@ namespace UniEasy.DI
 
             while (completedCount < luaPackCount) { yield return null; }
 
-            GlobalXLua.LuaEnv.AddLoader(CustomizeLoader);
-            GlobalXLua.LuaEnv.DoString("require 'Lua/Scripts/LuaInstaller'");
-            GlobalXLua.LuaEnv.Global.Get("InstallerEnv", out InstallerEnv);
+            LuaDefine.LuaEnv.AddLoader(CustomizeLoader);
+            LuaDefine.LuaEnv.DoString("require 'Lua/Scripts/LuaInstaller'");
+            LuaDefine.LuaEnv.Global.Get("InstallerEnv", out InstallerEnv);
             InstallerEnv.Set("self", this);
             InstallerEnv.Set("Container", Container);
             InstallerEnv.Get("Initialize", out luaInitialize);
@@ -76,7 +76,7 @@ namespace UniEasy.DI
             luaUpdate?.Invoke();
             if (Time.time - lastGCTime > GCInterval)
             {
-                GlobalXLua.LuaEnv.Tick();
+                LuaDefine.LuaEnv.Tick();
                 lastGCTime = Time.time;
             }
         }
