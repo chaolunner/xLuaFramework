@@ -9,21 +9,72 @@ namespace UniEasy.Editor
 {
     public static class LuaConfigure
     {
-        static List<string> ExcludeHotfixNamespaceList = new List<string>()
+        static List<string> ExcludeList = new List<string>
         {
-            "XLua",
-            "UnityEditor",
-            "UniEasy.Editor",
+            "HideInInspector", "ExecuteInEditMode",
+            "AddComponentMenu", "ContextMenu",
+            "RequireComponent", "DisallowMultipleComponent",
+            "SerializeField", "AssemblyIsEditorAssembly",
+            "Attribute", "Types",
+            "UnitySurrogateSelector", "TrackedReference",
+            "TypeInferenceRules", "FFTWindow",
+            "RPC", "Network", "MasterServer",
+            "BitStream", "HostData",
+            "ConnectionTesterStatus", "GUI", "EventType",
+            "EventModifiers", "FontStyle", "TextAlignment",
+            "TextEditor", "TextEditorDblClickSnapping",
+            "TextGenerator", "TextClipping", "Gizmos",
+            "ADBannerView", "ADInterstitialAd",
+            "Android", "Tizen", "jvalue",
+            "iPhone", "iOS", "Windows", "CalendarIdentifier",
+            "CalendarUnit", "CalendarUnit",
+            "ClusterInput", "FullScreenMovieControlMode",
+            "FullScreenMovieScalingMode", "Handheld",
+            "LocalNotification", "NotificationServices",
+            "RemoteNotificationType", "RemoteNotification",
+            "SamsungTV", "TextureCompressionQuality",
+            "TouchScreenKeyboardType", "TouchScreenKeyboard",
+            "MovieTexture", "UnityEngineInternal",
+            "Terrain", "Tree", "SplatPrototype",
+            "DetailPrototype", "DetailRenderMode",
+            "MeshSubsetCombineUtility", "AOT", "Social", "Enumerator",
+            "SendMouseEvents", "Cursor", "Flash", "ActionScript",
+            "OnRequestRebuild", "Ping",
+            "ShaderVariantCollection", "SimpleJson.Reflection",
+            "CoroutineTween", "GraphicRebuildTracker",
+            "Advertisements", "UnityEditor", "WSA",
+            "EventProvider", "Apple",
+            "ClusterInput", "Motion",
+            "UnityEngine.UI.ReflectionMethodsCache", "NativeLeakDetection",
+            "NativeLeakDetectionMode", "WWWAudioExtensions", "UnityEngine.Experimental",
+            "UniEasy.HttpServerSettings", "XLua", "UnityEditor", "UniEasy.Editor",
+            "System.Reflection", "UniEasy.TypeExtensions", "UniEasy.TypeHelper",
+            "UniEasy.AssemblyHelper", "UniEasy.HttpServer",
+            "UnityEngine.AnimatorControllerParameter", "UnityEngine.AudioSettings",
+            "UnityEngine.DrivenRectTransformTracker", "UnityEngine.Caching",
+            "UnityEngine.Input", "UnityEngine.LightProbeGroup",
+            "UnityEngine.ParticleSystemForceField", "UnityEngine.QualitySettings",
+            "UnityEngine.Texture", "UnityEngine.UI.Graphic",
+            "UnityEngine.UI.Text",
         };
 
-        static List<Type> ExcludeHotfixTypeList = new List<Type>()
+        static List<string> ExcludeDelegateList = new List<string>
         {
-            typeof(UniEasy.HttpServerSettings),
+            "XLua", "UnityEditor", "System.Reflection",
+            "UniEasy.HttpServerSettings", "UniEasy.Editor",
         };
 
-        static bool IsExcludeHotfix(Type type)
+        static bool IsExclude(Type type)
         {
-            return ExcludeHotfixNamespaceList.Any(str => !string.IsNullOrEmpty(type.Namespace) && type.Namespace.StartsWith(str)) || ExcludeHotfixTypeList.Any(t => t.IsSameOrSubclassOf(type));
+            var fullName = type.FullName;
+            for (int i = 0; i < ExcludeList.Count; i++)
+            {
+                if (fullName == null || fullName.Contains(ExcludeList[i]))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         [Hotfix]
@@ -32,81 +83,70 @@ namespace UniEasy.Editor
             get
             {
                 return (from type in Assembly.Load("Assembly-CSharp").GetExportedTypes()
-                        where !IsExcludeHotfix(type)
+                        where !IsExclude(type)
                         select type);
             }
         }
 
-        [LuaCallCSharp]
-        public static List<Type> LuaCallCSharp = new List<Type>()
+        static List<Type> IncludeTypeList = new List<Type>()
         {
-            typeof(System.Object),
-            typeof(UnityEngine.Object),
-            typeof(Vector2),
-            typeof(Vector3),
-            typeof(Vector4),
-            typeof(Quaternion),
-            typeof(Color),
-            typeof(Ray),
-            typeof(Bounds),
-            typeof(Ray2D),
-            typeof(Time),
-            typeof(GameObject),
-            typeof(Component),
-            typeof(Behaviour),
-            typeof(Transform),
-            typeof(Resources),
-            typeof(TextAsset),
-            typeof(Keyframe),
-            typeof(AnimationCurve),
-            typeof(AnimationClip),
-            typeof(MonoBehaviour),
-            typeof(ParticleSystem),
-            typeof(SkinnedMeshRenderer),
-            typeof(Renderer),
-            typeof(WWW),
-            typeof(Light),
-            typeof(Mathf),
-            typeof(System.Collections.Generic.List<int>),
+            typeof(object),
+            typeof(List<int>),
+            typeof(List<float>),
+            typeof(List<string>),
+            typeof(List<UnityEngine.Object>),
+            typeof(Action<int>),
+            typeof(Action<float>),
             typeof(Action<string>),
-            typeof(UnityEngine.Debug),
-            typeof(UnityEngine.Networking.UnityWebRequest),
-            typeof(UniEasy.DI.DiContainer),
-            typeof(UniEasy.ObjectExtensions),
-            typeof(UniEasy.IObservableExtensions)
+            typeof(Action<UnityEngine.Object>),
         };
 
-        static List<string> ExcludeDelegateNamespaceList = new List<string>()
+        [LuaCallCSharp]
+        public static IEnumerable<Type> LuaCallCSharp
         {
-            "XLua",
-            "UnityEditor",
-            "UniEasy.Editor",
-            "System.Reflection",
-        };
+            get
+            {
+                List<string> namespaces = new List<string>()
+                {
+                    "UnityEngine",
+                    "UnityEngine.UI",
+                };
+                var unityTypes = (from assembly in AppDomain.CurrentDomain.GetAssemblies()
+                                  where !(assembly.ManifestModule is System.Reflection.Emit.ModuleBuilder)
+                                  from type in assembly.GetExportedTypes()
+                                  where type.Namespace != null && namespaces.Contains(type.Namespace) && !IsExclude(type)
+                                          && type.BaseType != typeof(MulticastDelegate) && !type.IsInterface && !type.IsEnum
+                                  select type);
 
-        static List<Type> ExcludeDelegateTypeList = new List<Type>()
-        {
-        };
+                string[] customAssemblys = new string[]
+                {
+                    "Assembly-CSharp",
+                };
+                var customTypes = (from assembly in customAssemblys.Select(s => Assembly.Load(s))
+                                   from type in assembly.GetExportedTypes()
+                                   where (type.Namespace == null || !IsExclude(type))
+                                           && type.BaseType != typeof(MulticastDelegate) && !type.IsInterface && !type.IsEnum
+                                   select type);
+                return unityTypes.Concat(customTypes).Concat(IncludeTypeList);
+            }
+        }
 
         static bool DelegateHasRef(Type delegateType, string refNamespace)
         {
-            if (TypeHelper.TypeHasRef(delegateType, refNamespace)) return true;
+            if (TypeHelper.TypeHasRef(delegateType, refNamespace)) { return true; }
             var method = delegateType.GetMethod("Invoke");
-            if (method == null)
-            {
-                return false;
-            }
-            if (TypeHelper.TypeHasRef(method.ReturnType, refNamespace)) return true;
+            if (method == null) { return false; }
+            if (TypeHelper.TypeHasRef(method.ReturnType, refNamespace)) { return true; }
             return method.GetParameters().Any(pinfo => TypeHelper.TypeHasRef(pinfo.ParameterType, refNamespace));
         }
 
         static bool IsExcludeDelegate(Type delegateType)
         {
-            return ExcludeDelegateTypeList.Contains(delegateType) || delegateType.BaseType != typeof(MulticastDelegate) || TypeHelper.HasGenericParameter(delegateType) || ExcludeDelegateNamespaceList.Any(str => DelegateHasRef(delegateType, str));
+            return IsExclude(delegateType) || delegateType.BaseType != typeof(MulticastDelegate) || TypeHelper.HasGenericParameter(delegateType) || ExcludeDelegateList.Any(str => DelegateHasRef(delegateType, str));
         }
 
         [CSharpCallLua]
-        static IEnumerable<Type> LuaFunctionInject
+        static IEnumerable<Type> CSharpCallLua
         {
             get
             {
