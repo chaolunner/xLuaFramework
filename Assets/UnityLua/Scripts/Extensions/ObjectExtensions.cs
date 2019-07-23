@@ -4,7 +4,7 @@ namespace UniEasy
 {
     public static partial class ObjectExtensions
     {
-        public static bool IsNull(this Object obj)
+        public static bool luaIsNull(this Object obj)
         {
             return obj == null;
         }
