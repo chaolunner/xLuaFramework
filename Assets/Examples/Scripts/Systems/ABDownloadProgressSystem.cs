@@ -28,12 +28,12 @@ public class ABDownloadProgressSystem : SystemBehaviour
 
             Observable.EveryUpdate().Subscribe(_ =>
             {
-                progress = AssetBundleManager.GetInstance().GetDownloadProgress();
-                contentSize = AssetBundleManager.GetInstance().GetContentSize(0);
-                downloadedSize = AssetBundleManager.GetInstance().GetDownloadedSize(0);
+                progress = ABLoaderManager.GetDownloadIntProgress();
+                contentSize = ABLoaderManager.GetContentSize(0);
+                downloadedSize = ABLoaderManager.GetDownloadedSize(0);
                 scrollbar.size = 0.01f * progress;
                 abDownloadProgressComponent.Progress.text = progress + "%";
-                abDownloadProgressComponent.Size.text = progress > 0 ? GetSizeByRecursive(contentSize, downloadedSize) : "";
+                abDownloadProgressComponent.Size.text = contentSize > 0 ? GetSizeByRecursive(contentSize, downloadedSize) : "";
                 if (progress >= 100) { SceneManager.LoadScene(1); }
             }).AddTo(this.Disposer).AddTo(abDownloadProgressComponent.Disposer);
         }).AddTo(this.Disposer);

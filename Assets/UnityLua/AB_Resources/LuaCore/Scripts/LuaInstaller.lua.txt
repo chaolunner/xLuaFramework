@@ -1,5 +1,5 @@
-require "Lua/Scripts/StringExtensions"
-require "Lua/Scripts/Global"
+require "LuaCore/Scripts/StringExtensions"
+require "LuaCore/Scripts/Core"
 
 InstallerEnv = new_env()
 
@@ -20,11 +20,11 @@ local function LuaInstaller(installerEnv)
     end
 
     local function Initialize()
-        Require(require("Lua/Preferences/Global"), nil)
+        Require(require("LuaCore/Preferences/Global"), nil)
     end
 
     local function OnSceneLoaded(scene, mode)
-        local paths = require("Lua/Preferences/Overview")
+        local paths = require("Lua/Preferences/Scenes")
         for i, path in pairs(paths) do
             local name = string.match(path, ".+/(.+)")
             if string.contains(string.lower(name), string.lower(scene.name)) then

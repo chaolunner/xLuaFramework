@@ -12,12 +12,12 @@ public class MultiABLoadExample : MonoBehaviour
     {
         Debug.Log(GetType() + "Start AssetBundle Framework Test!");
         StartCoroutine(AssetBundleManager.GetInstance().DownloadAssetBundle());
-        while (AssetBundleManager.GetInstance().GetDownloadProgress() < 100)
+        while (ABLoaderManager.GetDownloadProgress() < 1)
         {
-            Debug.Log(string.Format("Download Progress {0}%, Downloaded Size {1}KB/{2}KB", AssetBundleManager.GetInstance().GetDownloadProgress(), AssetBundleManager.GetInstance().GetDownloadedSize().ToString("0"), AssetBundleManager.GetInstance().GetContentSize().ToString("0")));
+            Debug.Log(string.Format("Download Progress {0}%, Downloaded Size {1}KB/{2}KB", ABLoaderManager.GetDownloadProgress(), ABLoaderManager.GetDownloadedSize().ToString("0"), ABLoaderManager.GetContentSize().ToString("0")));
             yield return null;
         }
-        Debug.Log(string.Format("Download Progress {0}%, Downloaded Size {1}KB/{2}KB", AssetBundleManager.GetInstance().GetDownloadProgress(), AssetBundleManager.GetInstance().GetDownloadedSize().ToString("0"), AssetBundleManager.GetInstance().GetContentSize().ToString("0")));
+        Debug.Log(string.Format("Download Progress {0}%, Downloaded Size {1}KB/{2}KB", ABLoaderManager.GetDownloadProgress(), ABLoaderManager.GetDownloadedSize().ToString("0"), ABLoaderManager.GetContentSize().ToString("0")));
         StartCoroutine(AssetBundleManager.GetInstance().LoadAssetBundle(sceneName, bundleName, OnLoadCompleted));
     }
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using System.IO;
@@ -10,6 +11,7 @@ namespace UniEasy.DI
     public class LuaInstaller : MonoInstaller
     {
         public float GCInterval = 1;
+        private bool isInitialized;
         private float lastGCTime;
         private LuaTable InstallerEnv;
         public Action luaInitialize;
@@ -17,6 +19,13 @@ namespace UniEasy.DI
         public Action luaOnEnable;
         public Action luaUpdate;
         public Action luaOnDisable;
+
+        static public List<string> PreloadingList = new List<string>()
+        {
+            "luacore/preferences.ab",
+            "luacore/scripts.ab",
+            "luacore/hotfixs.ab",
+        };
 
         public override void InstallBindings() { }
 
@@ -27,28 +36,14 @@ namespace UniEasy.DI
 
         private IEnumerator Initialize()
         {
-            while (AssetBundleManager.GetInstance().GetDownloadProgress() < 100) { yield return null; }
-
-            var manifest = ABManifestLoader.GetInstance().GetABManifest();
-            var luaPackCount = 0;
-            var completedCount = 0;
-            foreach (var abName in manifest.GetAllAssetBundles())
+            foreach (var abName in PreloadingList)
             {
                 var sceneName = abName.Substring(0, abName.IndexOf("/"));
-                if (sceneName == "lua")
-                {
-                    StartCoroutine(AssetBundleManager.GetInstance().LoadAssetBundle(sceneName, abName, (_) =>
-                    {
-                        completedCount++;
-                    }));
-                    luaPackCount++;
-                }
+                yield return AssetBundleManager.GetInstance().LoadAssetBundle(sceneName, abName);
             }
 
-            while (completedCount < luaPackCount) { yield return null; }
-
             LuaDefine.LuaEnv.AddLoader(CustomizeLoader);
-            LuaDefine.LuaEnv.DoString("require 'Lua/Scripts/LuaInstaller'");
+            LuaDefine.LuaEnv.DoString("require 'LuaCore/Scripts/LuaInstaller'");
             LuaDefine.LuaEnv.Global.Get("InstallerEnv", out InstallerEnv);
             InstallerEnv.Set("self", this);
             InstallerEnv.Set("Container", Container);
@@ -59,6 +54,21 @@ namespace UniEasy.DI
             InstallerEnv.Get("OnDisbale", out luaOnDisable);
 
             luaInitialize?.Invoke();
+
+            while (ABLoaderManager.GetDownloadProgress() < 1) { yield return null; }
+
+            var manifest = ABManifestLoader.GetInstance().GetABManifest();
+            foreach (var abName in ABManifestLoader.GetInstance().AssetBundleList)
+            {
+                var sceneName = abName.Substring(0, abName.IndexOf("/"));
+                if (sceneName.StartsWith("lua"))
+                {
+                    yield return StartCoroutine(AssetBundleManager.GetInstance().LoadAssetBundle(sceneName, abName));
+                }
+            }
+
+            isInitialized = true;
+
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
                 OnSceneLoaded(SceneManager.GetSceneAt(i), i == 0 ? LoadSceneMode.Single : LoadSceneMode.Additive);
@@ -89,7 +99,10 @@ namespace UniEasy.DI
 
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            luaOnSceneLoaded?.Invoke(scene, mode);
+            if (isInitialized)
+            {
+                luaOnSceneLoaded?.Invoke(scene, mode);
+            }
         }
 
         private byte[] CustomizeLoader(ref string filepath)

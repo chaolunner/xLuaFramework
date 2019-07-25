@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 679ed8409afb1ce42b60ac8593a967c8
+guid: 0a7239a1b9c19ec4985baf15dd69f990
 TextScriptImporter:
   externalObjects: {}
   userData: 
-  assetBundleName: lua/scripts
+  assetBundleName: luacore/scripts
   assetBundleVariant: ab
