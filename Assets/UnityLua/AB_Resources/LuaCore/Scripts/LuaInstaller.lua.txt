@@ -20,15 +20,19 @@ local function LuaInstaller(installerEnv)
     end
 
     local function Initialize()
+        local scene = scene_manager:GetActiveScene()
+        local parent = scene:GetRootGameObjects()[0].transform
         Require(require("LuaCore/Preferences/Global"), nil)
+        Require(require("LuaCore/Preferences/Loading"), parent)
     end
 
     local function OnSceneLoaded(scene, mode)
         local paths = require("Lua/Preferences/Scenes")
+        local parent = scene:GetRootGameObjects()[0].transform
         for i, path in pairs(paths) do
             local name = string.match(path, ".+/(.+)")
             if string.contains(string.lower(name), string.lower(scene.name)) then
-                Require(require(path), scene:GetRootGameObjects()[0].transform)
+                Require(require(path), parent)
             end
         end
 

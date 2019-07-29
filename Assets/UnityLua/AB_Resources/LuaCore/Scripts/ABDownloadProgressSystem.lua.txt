@@ -1,0 +1,102 @@
+local function ABDownloadProgressSystem(systemEnv)
+    local self = systemEnv.self
+
+    local function GetUnit(num)
+        if num == 0 then
+            return "B"
+        elseif num == 1 then
+            return "KB"
+        elseif num == 2 then
+            return "MB"
+        elseif num == 3 then
+            return "GB"
+        elseif num == 4 then
+            return "TB"
+        elseif num == 5 then
+            return "PB"
+        elseif num == 6 then
+            return "EB"
+        elseif num == 7 then
+            return "ZB"
+        elseif num == 8 then
+            return "YB"
+        elseif num == 9 then
+            return "BB"
+        elseif num == 10 then
+            return "NB"
+        elseif num == 11 then
+            return "DB"
+        elseif num == 12 then
+            return "CB"
+        else
+            return "2^" .. num .. "0B"
+        end
+    end
+
+    local function GetSizeByRecursive(contentSize, downloadSize, num)
+        local cs = contentSize / 1024
+        local ds = downloadSize / 1024
+        if cs >= 1 then
+            return GetSizeByRecursive(cs, ds, num + 1)
+        else
+            return CS.UnityEngine.Mathf.RoundToInt(downloadSize) ..
+                "/" .. CS.UnityEngine.Mathf.RoundToInt(contentSize) .. GetUnit(num)
+        end
+    end
+
+    local function Initialize(eventSystem, poolManager, groupFactory, prefabFactory)
+        abdownloadProgressComponents =
+            system.Create(self, typeof(CS.ABDownloadProgressComponent), typeof(CS.UnityEngine.UI.Scrollbar))
+    end
+
+    local function OnEnable()
+        subscribe(
+            CS.UniEasy.ECS.IEntity,
+            group.OnAdd(abdownloadProgressComponents),
+            function(entity)
+                local abdownloadProgressComponent = get_component(entity, CS.ABDownloadProgressComponent)
+                local scrollbar = get_component(entity, CS.UnityEngine.UI.Scrollbar)
+                local progress = 0
+                local contentSize = 0
+                local downloadedSize = 0
+                subscribe(
+                    CS.System.Int64,
+                    CS.UniRx.Observable.EveryUpdate(),
+                    function(_)
+                        progress = CS.UniEasy.ABLoaderManager.GetDownloadIntProgress()
+                        contentSize = CS.UniEasy.ABLoaderManager.GetContentSize(0)
+                        downloadedSize = CS.UniEasy.ABLoaderManager.GetDownloadedSize(0)
+                        scrollbar.size = 0.01 * progress
+                        abdownloadProgressComponent.Progress.text = progress .. "%"
+                        if contentSize > 0 then
+                            abdownloadProgressComponent.Size.text = GetSizeByRecursive(contentSize, downloadedSize, 0)
+                        else
+                            abdownloadProgressComponent.Size.text = ""
+                        end
+
+                        if progress >= 100 then
+                            scene_manager.LoadScene(1)
+                        end
+                    end,
+                    self.Disposer,
+                    abdownloadProgressComponent.Disposer
+                )
+            end,
+            self.Disposer
+        )
+    end
+
+    local function OnDisable()
+    end
+
+    local function OnDestroy()
+    end
+
+    systemEnv.Initialize = Initialize
+    systemEnv.OnEnable = OnEnable
+    systemEnv.OnDisable = OnDisable
+    systemEnv.OnDestroy = OnDestroy
+    systemEnv.GetContentSize = GetSizeByRecursive
+end
+
+return ABDownloadProgressSystem

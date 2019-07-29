@@ -29,9 +29,12 @@ local function TutorialSystem(systemEnv)
                         elseif string.contains(button.name, "CreatePrimitiveButton") then
                             CS.UnityEngine.GameObject.CreatePrimitive(CS.UnityEngine.PrimitiveType.Cube)
                         end
-                    end
+                    end,
+                    self.Disposer,
+                    viewComponent.Disposer
                 )
-            end
+            end,
+            self.Disposer
         )
     end
 

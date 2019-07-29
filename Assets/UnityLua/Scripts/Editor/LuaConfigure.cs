@@ -96,6 +96,7 @@ namespace UniEasy.Editor
             typeof(List<string>),
             typeof(List<UnityEngine.Object>),
             typeof(Action<int>),
+            typeof(Action<long>),
             typeof(Action<float>),
             typeof(Action<string>),
             typeof(Action<UnityEngine.Object>),
@@ -127,7 +128,7 @@ namespace UniEasy.Editor
                                    where (type.Namespace == null || !IsExclude(type))
                                            && type.BaseType != typeof(MulticastDelegate) && !type.IsInterface && !type.IsEnum
                                    select type);
-                return unityTypes.Concat(customTypes).Concat(IncludeTypeList);
+                return unityTypes.Concat(customTypes).Concat(IncludeTypeList).Distinct();
             }
         }
 
@@ -175,7 +176,7 @@ namespace UniEasy.Editor
                 var fieldTypes = from type in allTypes
                                  from field in type.GetFields(flag)
                                  select field.FieldType;
-                return (returnTypes.Concat(paramTypes).Concat(fieldTypes)).Where(t => !IsExcludeDelegate(t)).Distinct();
+                return (returnTypes.Concat(paramTypes).Concat(fieldTypes)).Concat(IncludeTypeList).Where(t => !IsExcludeDelegate(t)).Distinct();
             }
         }
 
