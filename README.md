@@ -1,4 +1,4 @@
-# LuaFramework
+# xLuaFramework
 
 Created by chaolun
 
@@ -18,11 +18,11 @@ How to Start
 
 - Ignore unity files and add support for **.lua.txt** format
 
-  ![](https://github.com/chaolunner/LuaFramework/blob/master/Documents/settings.png)
+  ![](https://github.com/chaolunner/xLuaFramework/blob/master/Documents/settings.png)
 
   Click `Edit in settings.json`.
 
-  ![](https://github.com/chaolunner/LuaFramework/blob/master/Documents/associations.png)
+  ![](https://github.com/chaolunner/xLuaFramework/blob/master/Documents/associations.png)
 
   Add the following JSON to your workspace settings.
 
@@ -52,17 +52,17 @@ How to Start
   }
   ```
 
-  ![](https://github.com/chaolunner/LuaFramework/blob/master/Documents/settings-json.png)
+  ![](https://github.com/chaolunner/xLuaFramework/blob/master/Documents/settings-json.png)
 
 - Install Lua plugin (choose one)
 
   - Install [EmmyLua](https://github.com/EmmyLua/IntelliJ-EmmyLua) (free)。
 
-    ![](https://github.com/chaolunner/LuaFramework/blob/master/Documents/emmylua.png)
+    ![](https://github.com/chaolunner/xLuaFramework/blob/master/Documents/emmylua.png)
 
   - Install [luaide](https://github.com/k0204/LuaIde) (vscode extensions - paid, github - free)
 
-    ![](https://github.com/chaolunner/LuaFramework/blob/master/Documents/luaide.png)
+    ![](https://github.com/chaolunner/xLuaFramework/blob/master/Documents/luaide.png)
 
 Reference
 ---
@@ -71,9 +71,9 @@ Reference
 
   VS Code documents about Unity.
 
-- [LuaFramework/wiki](https://github.com/chaolunner/LuaFramework/wiki)
+- [xLuaFramework/wiki](https://github.com/chaolunner/xLuaFramework/wiki)
 
-  LuaFramework documents.
+  xLuaFramework documents.
 
 - [Unity Asset Bundle Browser tool](https://docs.unity3d.com/Manual/AssetBundles-Browser.html) (Deprecated can be replaced by Addressable Asset System after Unity2018.2+)
 
