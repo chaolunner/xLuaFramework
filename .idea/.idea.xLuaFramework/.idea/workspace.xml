@@ -13,6 +13,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/README.md" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1gGDsSMahqDjiQipgrouySmKwAZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -52,7 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1597732241564</updated>
-      <workItem from="1597732262573" duration="866000" />
+      <workItem from="1597732262573" duration="1388000" />
     </task>
     <servers />
   </component>
