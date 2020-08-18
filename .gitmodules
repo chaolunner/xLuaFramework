@@ -1,6 +1,6 @@
 [submodule "Assets/UnityFramework"]
-	path = Assets/UnityFramework
-	url = git@github.com:chaolunner/UnityFramework.git
+    path = Assets/UnityFramework
+    url = https://github.com/chaolunner/UnityFramework.git
 [submodule "Assets/StreamingAssets"]
-	path = Assets/StreamingAssets
-	url = git@github.com:chaolunner/UnityFrameworkStreamingAssets.git
+    path = Assets/StreamingAssets
+    url = https://github.com/chaolunner/UnityFrameworkStreamingAssets.git
