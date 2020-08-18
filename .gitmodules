@@ -4,3 +4,6 @@
 [submodule "Assets/StreamingAssets"]
     path = Assets/StreamingAssets
     url = https://github.com/chaolunner/UnityFrameworkStreamingAssets.git
+[submodule "Assets/ABExplorer"]
+	path = Assets/ABExplorer
+	url = https://github.com/chaolunner/ABExplorer.git
