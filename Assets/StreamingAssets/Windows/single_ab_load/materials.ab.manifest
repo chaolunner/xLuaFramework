@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 3296490330
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 64391abd9474bc5ab8a3b8826c1a7779
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21c99c86a43ad817b2cb7f65458ae090
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/AB_Resources/Single_Ab_Load/Materials/Cube.mat
+Dependencies:
+- D:/xLuaFramework/Assets/StreamingAssets/Windows/single_ab_load/textures.ab

@@ -1,0 +1,15 @@
+ManifestFileVersion: 0
+CRC: 565322695
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: single_ab_load/materials.ab
+      Dependencies:
+        Dependency_0: single_ab_load/textures.ab
+    Info_1:
+      Name: single_ab_load/prefabs.ab
+      Dependencies:
+        Dependency_0: single_ab_load/materials.ab
+    Info_2:
+      Name: single_ab_load/textures.ab
+      Dependencies: {}

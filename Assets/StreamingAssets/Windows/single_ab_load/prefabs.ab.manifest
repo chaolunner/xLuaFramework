@@ -1,0 +1,29 @@
+ManifestFileVersion: 0
+CRC: 4220033498
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7ae91dd4866e65b1db56a169015fa238
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7652f69dff3dcd0741269161f69220a7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+Assets:
+- Assets/AB_Resources/Single_Ab_Load/Prefabs/Cube.prefab
+Dependencies:
+- D:/xLuaFramework/Assets/StreamingAssets/Windows/single_ab_load/materials.ab
