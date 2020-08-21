@@ -14,37 +14,25 @@ namespace Examples.Scripts
         private const string AbDependPrefabs = "single_ab_load/prefabs.ab";
         private const string AssetName = "Cube.prefab";
 
-        void Start()
+        async void Start()
         {
-            _texturesLoader = new AbLoader(AbDependTextures, onLoadCompleted: OnTexturesLoadCompleted);
-            StartCoroutine(_texturesLoader.LoadAsync());
-        }
-
-        private void OnTexturesLoadCompleted(string abName)
-        {
-            _materialsLoader = new AbLoader(AbDependMaterials, onLoadCompleted: OnMaterialsLoadCompleted);
-            StartCoroutine(_materialsLoader.LoadAsync());
-        }
-
-        private void OnMaterialsLoadCompleted(string abName)
-        {
-            _prefabsLoader = new AbLoader(AbDependPrefabs, onLoadCompleted: OnPrefabsLoadCompleted);
-            StartCoroutine(_prefabsLoader.LoadAsync());
-        }
-
-        private void OnPrefabsLoadCompleted(string abName)
-        {
+            _texturesLoader = new AbLoader(AbDependTextures);
+            await _texturesLoader.LoadAsync();
+            _materialsLoader = new AbLoader(AbDependMaterials);
+            await _materialsLoader.LoadAsync();
+            _prefabsLoader = new AbLoader(AbDependPrefabs);
+            await _prefabsLoader.LoadAsync();
+            
             var cubePrefab = _prefabsLoader.LoadAsset<GameObject>(AssetName, false);
-
             Instantiate(cubePrefab);
 
             var assetsNames = _prefabsLoader.GetAllAssetNames();
-            foreach (var name in assetsNames)
+            foreach (var assetName in assetsNames)
             {
-                Debug.Log(name);
+                Debug.Log(assetName);
             }
         }
-
+        
         void Update()
         {
             if (_texturesLoader != null)

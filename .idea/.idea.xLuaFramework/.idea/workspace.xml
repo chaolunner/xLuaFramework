@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,149 +23,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d04231-0dd1-415b-9c68-db7a2a7bd0ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbExplorerSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABManifestLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABRelation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDefine.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownloader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiAbLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Extensions/ResponseExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Extensions/ResponseExtensions.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/HttpServer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Resources/ABExplorerSettings.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/SingleAbLoadExample.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/XRSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/AsyncOperationHandle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/AsyncOperationHandle.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Extensions/AsyncOperationExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Extensions/AsyncOperationExtensions.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ABExplorer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Extensions.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABDefine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABDefine.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABDefine.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABDownloader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABDownloader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABDownloader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABLoader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABLoaderManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABLoaderManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABLoaderManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABManifestLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABManifestLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABManifestLoader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABRelation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/ABRelation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABRelation.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/AssetLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/AssetLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/MultiABLoader.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Classes/MultiABLoader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiABLoader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetBundleManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetBundleManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/HttpServer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/HttpServer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/HttpServer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABBuildUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABBuildUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABCacheUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABCacheUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABDeleteUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABDeleteUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABLabelsUtility.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABLabelsUtility.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/HttpServerSettingsRegister.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbExplorerSettingsProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/HttpServerSettingsRegister.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABExplorerSettingsProvider.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Installers.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Resources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Installers/AssetBundleInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Installers/AssetBundleInstaller.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/ScriptableObjects.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Resources/ABExplorerSettings.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/ScriptableObjects/HttpServerSettings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/ScriptableObjects/HttpServerSettings.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbExplorerSettings.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Util.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Utilities.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Util/PathsUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Util/PathsUtility.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AB_Resources/Single_AB_Load/Textures/Cube.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AB_Resources/Single_AB_Load/Textures/Cube.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scenes/Loading.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scenes/Loading.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scenes/SingleABLoad.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scenes/SingleABLoad.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scenes/Tutorial.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scenes/Tutorial.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Components.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Components/ABDownloadProgressComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Components/ABDownloadProgressComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Examples.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Examples/MultiABLoadExample.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Examples/MultiABLoadExample.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Examples/SingleABLoadExample.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Examples/SingleABLoadExample.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/SingleAbLoadExample.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Examples/TutorialExample.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/Examples/TutorialExample.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityFramework" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityFramework.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Preferences.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Preferences/Scenes.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Preferences/Scenes.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Preferences/Tutorial.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Preferences/Tutorial.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Scripts/TutorialSystem.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/Lua/Scripts/TutorialSystem.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Preferences.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Preferences/Global.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Preferences/Global.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Preferences/Loading.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Preferences/Loading.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/ABDownloadProgressSystem.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/ABDownloadProgressSystem.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/Core.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/Core.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/LuaInstaller.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/LuaInstaller.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/LuaSystems.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/LuaSystems.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/StringExtensions.lua.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/AB_Resources/LuaCore/Scripts/StringExtensions.lua.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Resources.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Resources/Installers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Resources/Installers/LuaInstaller.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Resources/Installers/LuaInstaller.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Core.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Core/LuaDefine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Core/LuaDefine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Core/LuaSystem.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Core/LuaSystem.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Editor/LuaConfigure.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Editor/LuaConfigure.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Extensions.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Extensions/IObservableExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Extensions/IObservableExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Extensions/ObjectExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Extensions/ObjectExtensions.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Installers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Installers/LuaInstaller.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UnityLua/Scripts/Installers/LuaInstaller.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/AbExplorerSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbExplorerSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABManifestLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABManifestLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownloader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownloader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiAbLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiAbLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Extensions/ResponseExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Extensions/ResponseExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/HttpServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/HttpServer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Resources/ABExplorerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Resources/ABExplorerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/SingleAbLoadExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/SingleAbLoadExample.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,12 +57,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Assets/ABExplorer" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2FEAF16E-8000-4E0C-ADAE-3F2E05F2A3FA/84/d9dd3647/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Examples/Scripts/HotfixExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F50D9332-08F2-4A1B-99C8-1C5022A4E1ED/67/6c89feb8/AssetBundle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ABExplorer/Extensions/AsyncOperationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2574B18-86B6-4E74-9647-32BC4CADA36B/0b/c57a7517/UnityWebRequestAsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABExplorer/Extensions/ResponseExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ABExplorer/AsyncOperationHandle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B2574B18-86B6-4E74-9647-32BC4CADA36B/48/555eea81/UnityWebRequest.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/e8/59cc2404/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4BEC26B5-CBC7-4715-8442-F1499E984732/e6/b67807aa/Task`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -203,28 +94,30 @@
         <option value="$PROJECT_DIR$/Assets/ABExplorer/ScriptableObjects/AbExplorerSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/ABDownloader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/ABLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Extensions/ResponseExtensions.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/HttpServer.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Editor/ABExplorerSettingsProvider.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbExplorerSettingsProvider.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/AbExplorerSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/ABDefine.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownloader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDefine.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/ABManifestLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/ABRelation.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Examples/Scripts/HotfixExample.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifestLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownloader.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Extensions/ResponseExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Extensions/AsyncOperationExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Examples/Scripts/SingleAbLoadExample.cs" />
-        <option value="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiAbLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/HttpServer.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/AbExplorerSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifestLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/AsyncOperationHandle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs" />
       </list>
     </option>
@@ -275,6 +168,14 @@
       <workItem from="1597809159216" duration="12150000" />
       <workItem from="1597829965357" duration="6342000" />
       <workItem from="1597837664420" duration="2977000" />
+      <workItem from="1597889535408" duration="4798000" />
+      <workItem from="1597899924593" duration="7330000" />
+      <workItem from="1597915141675" duration="3140000" />
+      <workItem from="1597918861445" duration="2389000" />
+      <workItem from="1597925099410" duration="1416000" />
+      <workItem from="1597975634794" duration="8645000" />
+      <workItem from="1597986677186" duration="9483000" />
+      <workItem from="1598006640578" duration="4377000" />
     </task>
     <servers />
   </component>
@@ -299,13 +200,21 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="713" y="339" width="1006" height="685" key="find.popup" timestamp="1597830125001">
+    <state x="776" y="192" key="RiderGenerateDialog" timestamp="1597904590472">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="713" y="339" width="1006" height="685" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597830125001" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1597808735133">
+    <state x="776" y="192" key="RiderGenerateDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597904590472" />
+    <state x="100" y="100" width="1720" height="840" key="VCS.FileHistoryDialog" timestamp="1597993076434">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597808735133" />
+    <state x="100" y="100" width="1720" height="840" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597993076434" />
+    <state x="2036" y="276" width="1006" height="685" key="find.popup" timestamp="1598007280847">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2036" y="276" width="1006" height="685" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598007280847" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1598009410319">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598009410319" />
   </component>
 </project>

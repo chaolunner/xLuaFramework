@@ -12,6 +12,7 @@
           <e p="AbFacade.cs" t="Include" />
           <e p="ABResources.cs" t="Include" />
           <e p="AssetBundleManager.cs" t="Include" />
+          <e p="AsyncOperationHandle.cs" t="Include" />
           <e p="Core" t="Include">
             <e p="ABDefine.cs" t="Include" />
             <e p="ABDownloader.cs" t="Include" />
@@ -27,6 +28,7 @@
             <e p="ABExplorerSettingsProvider.cs" t="Include" />
           </e>
           <e p="Extensions" t="Include">
+            <e p="AsyncOperationExtensions.cs" t="Include" />
             <e p="ResponseExtensions.cs" t="Include" />
           </e>
           <e p="HttpServer.cs" t="Include" />
