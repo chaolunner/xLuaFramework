@@ -7,15 +7,13 @@ namespace Examples.Scripts
     public class MultiAbLoadExample : MonoBehaviour
     {
         private const string SceneName = "single_ab_load";
-        private const string AbName = "single_ab_load/prefabs.ab";
-        private const string assetName = "Cube.prefab";
 
         private async void Start()
         {
             Debug.Log(GetType() + "Start MultiAbLoad Test!");
 
-            var downloadTask = AbResources.DownloadAbAsync().Task;
-            while (!downloadTask.IsCompleted)
+            var checkUpdateTask = AbResources.CheckUpdateAsync();
+            while (!checkUpdateTask.IsCompleted)
             {
                 var progress = AbResources.GetDownloadProgress(out var downloadedSize, out var contentSize,
                     out var unit);

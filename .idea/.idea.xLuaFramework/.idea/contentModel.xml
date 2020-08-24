@@ -18,7 +18,8 @@
             <e p="ABDownloader.cs" t="Include" />
             <e p="ABLoader.cs" t="Include" />
             <e p="ABLoaderManager.cs" t="Include" />
-            <e p="ABManifestLoader.cs" t="Include" />
+            <e p="AbManifest.cs" t="Include" />
+            <e p="AbManifestManager.cs" t="Include" />
             <e p="ABRelation.cs" t="Include" />
             <e p="AssetLoader.cs" t="Include" />
             <e p="MultiABLoader.cs" t="Include" />
