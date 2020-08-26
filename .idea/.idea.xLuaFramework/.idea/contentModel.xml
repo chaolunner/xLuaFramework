@@ -15,7 +15,7 @@
           <e p="AsyncOperationHandle.cs" t="Include" />
           <e p="Core" t="Include">
             <e p="ABDefine.cs" t="Include" />
-            <e p="ABDownloader.cs" t="Include" />
+            <e p="AbDownload.cs" t="Include" />
             <e p="ABLoader.cs" t="Include" />
             <e p="ABLoaderManager.cs" t="Include" />
             <e p="AbManifest.cs" t="Include" />

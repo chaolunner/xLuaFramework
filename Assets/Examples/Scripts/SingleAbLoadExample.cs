@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ABExplorer;
+using UnityEngine;
 using ABExplorer.Core;
 
 namespace Examples.Scripts
@@ -8,31 +9,42 @@ namespace Examples.Scripts
         private AbLoader _texturesLoader;
         private AbLoader _materialsLoader;
         private AbLoader _prefabsLoader;
+        private AbManifest _abManifest;
 
-        private const string AbDependTextures = "single_ab_load/textures.ab";
-        private const string AbDependMaterials = "single_ab_load/materials.ab";
-        private const string AbDependPrefabs = "single_ab_load/prefabs.ab";
+        private const string AbTextures = "single_ab_load/textures.ab";
+        private const string AbMaterials = "single_ab_load/materials.ab";
+        private const string AbPrefabs = "single_ab_load/prefabs.ab";
         private const string AssetName = "Cube.prefab";
 
         async void Start()
         {
-            _texturesLoader = new AbLoader(AbDependTextures);
-            await _texturesLoader.LoadAsync();
-            _materialsLoader = new AbLoader(AbDependMaterials);
-            await _materialsLoader.LoadAsync();
-            _prefabsLoader = new AbLoader(AbDependPrefabs);
-            await _prefabsLoader.LoadAsync();
-            
+            await AbResources.CheckUpdateAsync();
+
+            _abManifest = AbManifestManager.AbManifest;
+
+            if (!_abManifest.IsValid)
+            {
+                Debug.LogWarning($"Can‘t find the manifest, please make sure to build the asset bundle first.");
+                return;
+            }
+
+            _texturesLoader = new AbLoader(AbTextures, _abManifest.GetAssetBundleHash(AbTextures));
+            await _texturesLoader.LoadAbAsync();
+            _materialsLoader = new AbLoader(AbMaterials, _abManifest.GetAssetBundleHash(AbMaterials));
+            await _materialsLoader.LoadAbAsync();
+            _prefabsLoader = new AbLoader(AbPrefabs, _abManifest.GetAssetBundleHash(AbPrefabs));
+            await _prefabsLoader.LoadAbAsync();
+
             var cubePrefab = _prefabsLoader.LoadAsset<GameObject>(AssetName, false);
             Instantiate(cubePrefab);
 
-            var assetsNames = _prefabsLoader.GetAllAssetNames();
-            foreach (var assetName in assetsNames)
+            var assetNames = _prefabsLoader.GetAllAssetNames();
+            foreach (var assetName in assetNames)
             {
                 Debug.Log(assetName);
             }
         }
-        
+
         void Update()
         {
             if (_texturesLoader != null)

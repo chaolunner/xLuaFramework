@@ -12,8 +12,8 @@ namespace Examples.Scripts
         {
             Debug.Log(GetType() + "Start MultiAbLoad Test!");
 
-            var checkUpdateTask = AbResources.CheckUpdateAsync();
-            while (!checkUpdateTask.IsCompleted)
+            var task = AbResources.CheckUpdateAsync();
+            while (!task.IsCompleted)
             {
                 var progress = AbResources.GetDownloadProgress(out var downloadedSize, out var contentSize,
                     out var unit);
