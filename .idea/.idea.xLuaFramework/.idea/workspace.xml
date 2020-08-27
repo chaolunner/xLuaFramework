@@ -23,26 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d04231-0dd1-415b-9c68-db7a2a7bd0ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownload.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.xLuaFramework/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ABExplorer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABDownloader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownload.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABRelation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/ABRelation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDefine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDefine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownloader.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifestManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifestManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiAbLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiAbLoader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ABExplorer/Resources/ABExplorerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ABExplorer/Resources/ABExplorerSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Examples/Scripts/SingleAbLoadExample.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Examples/Scripts/SingleAbLoadExample.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
@@ -52,7 +41,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Assets/ABExplorer" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2FEAF16E-8000-4E0C-ADAE-3F2E05F2A3FA/84/d9dd3647/AsyncOperation.cs" root0="SKIP_HIGHLIGHTING" />
@@ -110,7 +99,6 @@
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Utilities/PathUtility.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifestLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/AbFacade.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifestManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Editor/AbBuildEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownloader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbDownload.cs" />
@@ -119,12 +107,13 @@
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifest.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AssetLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbRelation.cs" />
-        <option value="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoaderManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/MultiAbLoader.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/AssetBundleManager.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbLoader.cs" />
-        <option value="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" />
         <option value="$PROJECT_DIR$/Assets/ABExplorer/AbResources.cs" />
+        <option value="$PROJECT_DIR$/Assets/ABExplorer/Core/AbManifestManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Examples/Scripts/MultiAbLoadExample.cs" />
       </list>
     </option>
   </component>
@@ -187,7 +176,8 @@
       <workItem from="1598258950121" duration="784000" />
       <workItem from="1598259936492" duration="11487000" />
       <workItem from="1598412235471" duration="3806000" />
-      <workItem from="1598418805472" duration="16928000" />
+      <workItem from="1598418805472" duration="20966000" />
+      <workItem from="1598442701404" duration="3506000" />
     </task>
     <servers />
   </component>
@@ -224,10 +214,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="100" y="100" width="1720" height="840" key="VCS.FileHistoryDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598436166759" />
-    <state x="2036" y="276" width="1006" height="685" key="find.popup" timestamp="1598422970160">
+    <state x="2036" y="276" width="1006" height="685" key="find.popup" timestamp="1598436637397">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2036" y="276" width="1006" height="685" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598422970160" />
+    <state x="2036" y="276" width="1006" height="685" key="find.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598436637397" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1598269429706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
